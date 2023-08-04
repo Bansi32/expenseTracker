@@ -1,0 +1,57 @@
+<!-- <form [formGroup]="loginForm">
+  <input
+    type="email"
+    name="email"
+    id="email"
+    placeholder="Enter your email"
+    formControlName="email"
+  />
+  <input
+    type="password"
+    name="password"
+    id="password"
+    placeholder="Enter your password"
+    formControlName="password"
+  />
+  <button type="button" [disabled]="loginForm.invalid" (click)="login()">
+    LogIn
+  </button>
+</form> -->
+<form [formGroup]="loginForm">
+  <div fxLayout="row" fxLayoutAlign="center center" class="login-main">
+    <mat-card>
+      <div>
+        <mat-card-title style="text-align: center">LogIn</mat-card-title>
+      </div>
+      <mat-card-content fxLayout="column">
+        <mat-form-field>
+          <mat-icon matPrefix>email</mat-icon>
+          <input
+            matInput
+            placeholder="Enter your email"
+            formControlName="email"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-icon matPrefix>lock_outline</mat-icon>
+          <input
+            type="password"
+            matInput
+            placeholder="Enter your password"
+            formControlName="password"
+          />
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="loginForm.invalid"
+          (click)="login()"
+        >
+          LogIn
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</form>
