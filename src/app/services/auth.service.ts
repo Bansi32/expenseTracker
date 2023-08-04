@@ -20,7 +20,7 @@ export class AuthService {
     return this.http.post(BASE_URL+"authentication",loginRequest);
   }
   hello():Observable<any>{
-    return this.http.get(BASE_URL+"api/hello",{
+    return this.http.get(BASE_URL+"api/categories",{
       headers:this.createAuthorizationHeader()
     });
   }
