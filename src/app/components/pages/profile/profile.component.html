@@ -1,0 +1,9 @@
+<p *ngIf="userLoggedIn; else notLoggedIn">profile works!</p>
+<ng-template #notLoggedIn>
+    <!-- Display error message for non-logged-in users -->
+    <div class="custom-alert">
+      <p class="error-message">
+        Error: You are not logged in. Please log in to view the content.
+      </p>
+    </div>
+  </ng-template>

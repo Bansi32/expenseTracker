@@ -1,4 +1,3 @@
-import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,12 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./logout.component.scss']
 })
 export class LogoutComponent implements OnInit{
+ 
   ngOnInit()
   {
     const jwtToken=localStorage.getItem("JWT");
     if(jwtToken)
     {
         localStorage.removeItem("JWT");
+  
     }
   }
 }

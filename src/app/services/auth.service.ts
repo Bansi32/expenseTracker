@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 const BASE_URL=['http://localhost:8084/'];
 
@@ -8,6 +8,8 @@ const BASE_URL=['http://localhost:8084/'];
   providedIn: 'root'
 })
 export class AuthService {
+  private userLoggedInSubject = new BehaviorSubject<boolean>(false);
+  userLoggedIn$ = this.userLoggedInSubject.asObservable();
 
   constructor(private http: HttpClient) { }
   
@@ -16,27 +18,18 @@ export class AuthService {
     return this.http.post(BASE_URL+"register",signupRequest);
   }
   login(loginRequest:any):Observable<any>
-  {
+  { 
+    this.userLoggedInSubject.next(true);
     return this.http.post(BASE_URL+"authentication",loginRequest);
   }
-  hello():Observable<any>{
-    return this.http.get(BASE_URL+"api/categories",{
-      headers:this.createAuthorizationHeader()
-    });
-  }
-  private createAuthorizationHeader(){
-    const jwtToken=localStorage.getItem("JWT");
+ 
+  isLoggedIn()
+  {
+    const jwtToken=localStorage.getItem('JWT');
     if(jwtToken)
     {
-      return new HttpHeaders().set(
-        'Authorization','Bearer '+jwtToken
-      )
+      this.userLoggedInSubject.next(true);
     }
-    else{
-      console.log("JWT token not found!");
-    }
-    return null;
   }
   
-
 }

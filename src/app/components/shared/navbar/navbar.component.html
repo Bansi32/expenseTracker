@@ -1,0 +1,25 @@
+<mat-toolbar style="background-color: #000000">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle();">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1>Expense Tracker</h1>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-nav-list>
+      <mat-list-item *ngIf="!userLoggedIn"><a href="/login" >LogIn</a></mat-list-item>
+      <mat-list-item *ngIf="!userLoggedIn" ><a href="/signup">SignUp</a></mat-list-item>
+      <mat-list-item *ngIf="userLoggedIn" ><a href="/dashboard" >Dashboard</a></mat-list-item>
+      <mat-list-item *ngIf="userLoggedIn" ><a href="/profile" >Profile</a></mat-list-item>
+      <mat-list-item ><a href="/about" >About</a></mat-list-item>
+      <mat-list-item><a href="/help" >Help</a></mat-list-item>
+      <mat-list-item *ngIf="userLoggedIn" ><a  href="/logout" >Logout</a></mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

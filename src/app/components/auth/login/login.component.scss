@@ -1,16 +1,20 @@
+form{
+  overflow: hidden;
+}
 .login-main {
   margin-top: 10%;
 }
 mat-card {
   min-width: 33%;
+  background-color: #000;
 }
 .mat-mdc-card-title {
-    color: #3F51B5;
+    color: #F2D16B;
     margin: 5px 0px 5px 0px;
     font-weight: bold;
 }
 .mat-mdc-raised-button.mat-primary {
-    --mdc-protected-button-container-color: #3F51B5;
+    --mdc-protected-button-container-color: #F2D16B;
 }
 .mat-icon {
   color: white;

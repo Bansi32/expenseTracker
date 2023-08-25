@@ -1,2 +1,43 @@
-<p>dashboard works!</p>
-<h2>{{message}}</h2>
+<div *ngIf="userLoggedIn; else notLoggedIn">
+  <div class="card-grid">
+    <mat-card>
+      <mat-card-content>
+        <h2>hI</h2>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-content>
+        <h2>hI</h2>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-content>
+        <h2>hI</h2>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- vertical card -->
+  <div>
+    <mat-card class="long-card">
+      <h3>Transaction History</h3>
+      <mat-card-content>
+        <p>asdadads</p>
+        <hr>
+        <p>asdad</p>
+        <hr>
+      </mat-card-content>
+      <div class="btn">
+        <button mat-raised-button>Add New</button>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<ng-template #notLoggedIn>
+  <!-- Display error message for non-logged-in users -->
+  <div class="custom-alert">
+    <p class="error-message">
+      Error: You are not logged in. Please log in to view the content.
+    </p>
+  </div>
+</ng-template>

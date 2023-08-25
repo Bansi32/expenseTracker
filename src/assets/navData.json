@@ -1,0 +1,17 @@
+[
+    {
+    "text":"Dashboard",
+    "icon":"",
+    "routerLink":"/dashboard"
+    },
+    {
+        "text":"SignUp",
+        "icon":"account_circle",
+        "routerLink":"/signup"
+    },
+    {
+        "text":"LogIn",
+        "icon":"arrow_right_alt",
+        "routerLink":"/login"
+    }
+]
